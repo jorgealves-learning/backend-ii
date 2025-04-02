@@ -65,6 +65,7 @@ a = Singleton()
 b = Singleton()
 print(a is b)
 ```
+
 - Explanation: Both instances refer to the same object.
 - Discussion: Briefly mention other patterns (Factory, Observer) for context.
 
