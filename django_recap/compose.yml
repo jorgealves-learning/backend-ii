@@ -1,0 +1,16 @@
+services:
+  web:
+    build: 
+      dockerfile: Dockerfile
+      context: .
+    command: poetry run gunicorn django_recap.wsgi:application --bind 0.0.0.0:8000 --reload
+    env_file:
+      - .env
+    volumes:
+      - .:/workspace
+    ports:
+      - 8000:8000
+  database:
+    image: postgres:alpine
+    env_file:
+      - .env
