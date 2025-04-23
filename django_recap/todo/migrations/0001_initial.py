@@ -4,24 +4,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Task',
+            name="Task",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('title', models.TextField(blank=True, default='')),
-                ('description', models.TextField(blank=True, default='')),
-                ('is_done', models.BooleanField(default=False)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("title", models.TextField(blank=True, default="")),
+                ("description", models.TextField(blank=True, default="")),
+                ("is_done", models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name': 'Task',
-                'verbose_name_plural': 'Tasks',
+                "verbose_name": "Task",
+                "verbose_name_plural": "Tasks",
             },
         ),
     ]

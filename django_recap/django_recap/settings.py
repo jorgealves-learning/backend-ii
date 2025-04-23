@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "todo"
+    "todo",
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,7 @@ WSGI_APPLICATION = "django_recap.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-import os
+
 DATABASES = {
     # "default": {
     #     "ENGINE": "django.db.backends.sqlite3",
@@ -81,11 +82,11 @@ DATABASES = {
     # },
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-            "HOST": os.environ.get("POSTGRES_HOST"),
-            "USER":os.environ.get("POSTGRES_USER"),
-            "PASSWORD":os.environ.get("POSTGRES_PASSWORD"),
-            "PORT":os.environ.get("POSTGRES_PORT"),
-            "NAME":os.environ.get("POSTGRES_DB")
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "PORT": os.environ.get("POSTGRES_PORT"),
+        "NAME": os.environ.get("POSTGRES_DB"),
     }
 }
 
