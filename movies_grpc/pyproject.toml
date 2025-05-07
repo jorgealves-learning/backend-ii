@@ -1,0 +1,30 @@
+[project]
+name = "movies-grpc"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Jorge Alves",email = "jorgeandrealves@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "grpcio (>=1.71.0,<2.0.0)",
+    "grpcio-tools (>=1.71.0,<2.0.0)",
+    "protobuf (>=6.30.2,<7.0.0)"
+]
+
+[tool.poetry.scripts]
+protoc-gen = "grpc_tools.protoc:main"
+
+[tool.poetry]
+packages = [{include = "movies_grpc", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+ruff = "^0.11.8"
+pre-commit = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package movie;
+
+message Movie {
+    string id = 1;
+    string title = 2;
+    string director = 3;
+    string year = 4;
+}
+
+message CreateMovieRequest {
+    Movie movie = 1;
+}
+message CreateMovieResponse {
+    Movie movie = 1;
+}
+message GetMovieRequest {
+}
+message GetMovieResponse {
+    repeated Movie movies = 1;
+}
+message UpdateMovieRequest {
+    Movie movie = 1;
+}
+message UpdateMovieResponse {
+    Movie movie = 1;
+}
+message DeleteMovieRequest {
+    string id = 1;
+}
+message DeleteMovieResponse {
+    bool success = 1;
+}
+
+service MovieService {
+    rpc CreateMovie(CreateMovieRequest) returns (CreateMovieResponse);
+    rpc GetMovie(GetMovieRequest) returns (GetMovieResponse);
+    rpc UpdateMovie(UpdateMovieRequest) returns (UpdateMovieResponse);
+    rpc DeleteMovie(DeleteMovieRequest) returns (DeleteMovieResponse);
+}
