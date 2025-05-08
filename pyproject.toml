@@ -1,0 +1,22 @@
+[project]
+name = "web-services"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.12",
+    "graphene>=3.4.3",
+    "grpcio>=1.71.0",
+    "grpcio-tools>=1.71.0",
+    "uvicorn>=0.34.2",
+    "sqlmodel>=0.0.24",
+    "psycopg2-binary>=2.9.10",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "ruff>=0.11.8",
+]

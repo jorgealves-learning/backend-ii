@@ -1,0 +1,46 @@
+services:
+
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: uv run uvicorn api.run:api --host 0.0.0.0 --port 8080 --reload
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+  grpc:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: uv run grpc_service 
+    ports:
+      - "50051:50051"
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+volumes:
+  mongo_data:
+  postres_data:
