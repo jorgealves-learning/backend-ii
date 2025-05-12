@@ -58,7 +58,10 @@ class CreateMovie(graphene.Mutation):
     def mutate(self, info, title, description, release_date, publisher_id):
         publisher = Publisher.objects.get(id=publisher_id)
         movie = Movie(
-            title=title, description=description, release_date=release_date, publisher=publisher
+            title=title,
+            description=description,
+            release_date=release_date,
+            publisher=publisher,
         )
         movie.save()
         return CreateMovie(movie=movie)
@@ -75,7 +78,9 @@ class CreatePublisher(graphene.Mutation):
     publisher = graphene.Field(PublisherType)
 
     def mutate(self, info, name, address, city, state, country):
-        publisher = Publisher(name=name, address=address, city=city, state=state, country=country)
+        publisher = Publisher(
+            name=name, address=address, city=city, state=state, country=country
+        )
         publisher.save()
         return CreatePublisher(publisher=publisher)
 
@@ -108,7 +113,10 @@ class CreateTVShow(graphene.Mutation):
     def mutate(self, info, title, description, release_date, publisher_id):
         publisher = Publisher.objects.get(id=publisher_id)
         tvshow = TVShow(
-            title=title, description=description, release_date=release_date, publisher=publisher
+            title=title,
+            description=description,
+            release_date=release_date,
+            publisher=publisher,
         )
         tvshow.save()
         return CreateTVShow(tvshow=tvshow)

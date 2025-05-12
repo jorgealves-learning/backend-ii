@@ -19,7 +19,9 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     release_date = models.DateField()
-    publisher = models.ForeignKey(Publisher, related_name="movies", on_delete=models.CASCADE)
+    publisher = models.ForeignKey(
+        Publisher, related_name="movies", on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.title
@@ -40,7 +42,9 @@ class TVShow(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     release_date = models.DateField()
-    publisher = models.ForeignKey(Publisher, related_name="tvshows", on_delete=models.CASCADE)
+    publisher = models.ForeignKey(
+        Publisher, related_name="tvshows", on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.title

@@ -38,11 +38,11 @@ jobs:
     steps:
       - name: Run Ruff Linting
         run: |
-          docker compose run --rm django poetry run ruff check
+          docker compose run --rm django poetry run ruff check .
 
       - name: Run Ruff format
         run: |
-          docker compose run --rm django poetry run ruff format
+          docker compose run --rm django poetry run ruff format .
 
       - name: Run Pre-commit
         run: |
