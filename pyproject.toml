@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "django_graphql", from = "src"}]
+packages = [{include = "django_graphql"}]
 
 
 [tool.poetry.group.dev.dependencies]
