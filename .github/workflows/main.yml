@@ -34,6 +34,16 @@ jobs:
       - name: Install Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_POSTGRES_USER: postgres
+          envkey_POSTGRES_PASSWORD: qwerty
+          envkey_POSTGRES_HOST: db
+          envkey_POSTGRES_PORT: 5432
+          envkey_POSTGRES_NAME: postgres
+          file_name: .env
+
       - name: Build Docker Compose
         run: |
           docker compose up -d --build
