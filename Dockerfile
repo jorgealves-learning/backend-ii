@@ -8,4 +8,6 @@ RUN pip install --upgrade pip && pip install poetry
 
 COPY . .
 
-CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "django_graphql.main:app"]
+RUN poetry install -n
+
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "django_graphql.wsgi:application"]
