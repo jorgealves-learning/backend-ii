@@ -1,0 +1,28 @@
+[project]
+name = "django-graphql"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Jorge Alves",email = "jorgeandrealves@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4"
+dependencies = [
+    "django (>=5.2,<6.0)",
+    "graphene-django (>=3.2.3,<4.0.0)",
+    "gunicorn (>=23.0.0,<24.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "django_graphql"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+ruff = "^0.11.7"
+pre-commit = "^4.2.0"
+pytest-django = "^4.11.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
