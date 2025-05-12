@@ -33,9 +33,6 @@ jobs:
         run: |
           docker compose up -d --build --force-recreate
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
       - uses: astral-sh/ruff-action@v3
       - run: ruff check --fix
       - run: ruff format
