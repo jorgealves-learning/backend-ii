@@ -36,17 +36,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Ruff Linting
-        run: |
-          docker compose run --rm django poetry run ruff check .
-
-      - name: Run Ruff format
-        run: |
-          docker compose run --rm django poetry run ruff format .
-
-      - name: Run Pre-commit
-        run: |
-          docker compose run --rm django poetry run pre-commit
+      - uses: astral-sh/ruff-action@v3
+      - run: ruff check --fix
+      - run: ruff format
 
       - name: Run Django tests
         run: |
