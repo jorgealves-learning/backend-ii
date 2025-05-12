@@ -40,11 +40,10 @@ jobs:
 
       - name: Run Django tests
         run: |
-          docker compose exec web python manage.py test --verbosity 2
+          docker compose exec django python manage.py test --verbosity 2
         env:
           # define environment variables needed for tests
-          DJANGO_SETTINGS_MODULE: myproject.settings.test
-          DATABASE_URL: postgres://postgres:postgres@postgres:5432/test_db
+          DJANGO_SETTINGS_MODULE: django_graphql.settings
 
       - name: Stop and remove containers
         if: always()
