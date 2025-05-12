@@ -1,0 +1,21 @@
+[project]
+name = "ai-agents"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Jorge Alves",email = "jorgeandrealves@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "crewai (>=0.119.0,<0.120.0)",
+    "pysqlite3-binary (>=0.5.4,<0.6.0)"
+]
+
+[tool.poetry]
+packages = [{include = "ai_agents", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
